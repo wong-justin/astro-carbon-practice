@@ -1,0 +1,314 @@
+---
+// mostly following:
+// https://carbondesignsystem.com/developing/web-components-tutorial/step-1/
+//
+// later i can remix using components from here:
+// https://web-components.carbondesignsystem.com/
+
+// import "../assets/app.scss";
+// import { MyComponent } from '../components/MyComponent.jsx'
+
+let title = "Hello World";
+
+// browse all icons:
+// https://carbondesignsystem.com/elements/icons/library/
+// and find their paths:
+// https://carbon-elements.netlify.app/icons/examples/preview/
+import notificationIconSvgString from "@carbon/icons/svg/32/notification.svg?raw";
+import avatarIconSvgString from "@carbon/icons/svg/32/user--avatar.svg?raw";
+import switcherIconSvgString from "@carbon/icons/svg/32/switcher.svg?raw";
+import sunIconSvgString from "@carbon/icons/svg/32/sun.svg?raw";
+import brightnessIconSvgString from "@carbon/icons/svg/32/brightness-contrast.svg?raw";
+import moonIconSvgString from "@carbon/icons/svg/32/moon.svg?raw";
+---
+
+<script>
+  import "@carbon/web-components/es/components/checkbox/index";
+  // checkbox/index ==
+  // import './checkbox.js';
+  // import './checkbox-group.js';
+  // import './checkbox-skeleton.js';
+  import "@carbon/web-components/es/components/content-switcher/index";
+  // content-switcher/index ==
+  // import '../tooltip/tooltip.js';
+  // import '../tooltip/tooltip-content.js';
+  // import './content-switcher.js';
+  // import './content-switcher-item.js';
+  import "@carbon/web-components/es/components/skip-to-content/index";
+  // skip-to-content/index == just skip-to-content.js
+  import "@carbon/web-components/es/components/ui-shell/index";
+  // ui-shell/index ==
+  // import './header.js';
+  // import './header-global-action.js';
+  // import './header-menu.js';
+  // import './header-menu-button.js';
+  // import './header-menu-item.js';
+  // import './header-name.js';
+  // import './header-nav.js';
+  // import './header-nav-item.js';
+  // import './header-panel.js';
+  // import './header-side-nav-items.js';
+  // import './side-nav.js';
+  // import './side-nav-divider.js';
+  // import './side-nav-items.js';
+  // import './side-nav-link.js';
+  // import './side-nav-menu.js';
+  // import './side-nav-menu-item.js';
+  // import './switcher.js';
+  // import './switcher-divider.js';
+  // import './switcher-item.js';
+
+  const handleGlobalActionClick = (ev) => {
+    const targetPanelId = ev.currentTarget.getAttribute("panel-id");
+    const panels = document.querySelectorAll("cds-header-panel");
+    // check to see if other panels are open and close them
+    panels.forEach((panel) => {
+      if (panel.id !== targetPanelId) {
+        panel.expanded = false;
+      }
+    });
+  };
+  const globalActions = document.querySelectorAll("cds-header-global-action");
+  [...globalActions].forEach((action) =>
+    action.addEventListener("click", handleGlobalActionClick),
+  );
+
+  const handleSwitch = (ev) => {
+    // Applies new theme or defers to system preferences by removing theme
+    switch (ev.detail.item.value) {
+      case "light":
+        document.body.classList.remove("g100");
+        document.body.classList.add("g10");
+        break;
+      case "dark":
+        document.body.classList.remove("g10");
+        document.body.classList.add("g100");
+        break;
+      default:
+        document.body.classList.remove("g10");
+        document.body.classList.remove("g100");
+    }
+  };
+  document
+    .querySelector(".theme-selector")
+    .addEventListener("cds-content-switcher-selected", handleSwitch);
+
+  const handleHeaderCompliment = (ev) => {
+    document
+      .querySelector("cds-header")
+      .classList.toggle("compliment", ev.target.checked);
+  };
+  document
+    .querySelector(".theme-header__compliment")
+    .addEventListener("cds-checkbox-changed", handleHeaderCompliment);
+</script>
+
+<style lang="scss">
+  @use "@carbon/styles/scss/reset";
+  @use "@carbon/styles/scss/themes";
+  @use "@carbon/styles/scss/theme" as *;
+  @use "@carbon/styles/scss/spacing" as *;
+  @use "@carbon/styles/scss/type" as *;
+
+  .app {
+    display: grid;
+    grid-template-rows: $spacing-09 1fr;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .main {
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  :root {
+    @include theme(themes.$g10);
+
+    @media (prefers-color-scheme: dark) {
+      @include theme(themes.$g100);
+    }
+  }
+
+  :root .compliment {
+    @include theme(themes.$g100);
+
+    @media (prefers-color-scheme: dark) {
+      @include theme(themes.$g10);
+    }
+  }
+
+  .g10 {
+    @include theme(themes.$g10);
+  }
+
+  .g100 {
+    @include theme(themes.$g100);
+  }
+
+  .g10 .compliment {
+    @include theme(themes.$g100);
+  }
+
+  .g100 .compliment {
+    @include theme(themes.$g10);
+  }
+
+  .action-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: $text-primary;
+  }
+
+  .header-panel__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-05;
+    padding: $spacing-05;
+  }
+
+  .header-panel__title {
+    @include type-style("productive-heading-02");
+  }
+
+  .theme-selector__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: $text-primary;
+  }
+
+  cds-content-switcher-item[selected] .theme-selector__icon {
+    /* switch icon color when selected */
+    fill: $background;
+  }
+</style>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {
+      /*
+    todo, for full-sized navbar: 
+    https://webkit.org/blog/7929/designing-websites-for-iphone-x/
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    the harder part is knowing where to put padding `env(safe-area-inset-left/right)`
+    */
+    }
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="icon" href="data:," />
+  </head>
+  <body class="app">
+    <header>
+      <cds-header class="compliment">
+        <cds-skip-to-content href="#main-content"></cds-skip-to-content>
+        <cds-header-menu-button
+          button-label-active="Close menu"
+          button-label-inactive="Open menu"></cds-header-menu-button>
+
+        <cds-header-name href="./">{title}</cds-header-name>
+
+        <cds-header-nav menu-bar-label={title}>
+          <cds-header-nav-item href="./">Repositories</cds-header-nav-item>
+        </cds-header-nav>
+
+        <cds-side-nav
+          is-not-persistent
+          aria-label="Side navigation"
+          collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}"
+        >
+          <cds-side-nav-items>
+            <cds-side-nav-link href="./"> Repositories </cds-side-nav-link>
+          </cds-side-nav-items>
+        </cds-side-nav>
+
+        <div class="cds--header__global">
+          <cds-header-global-action
+            aria-label="Notifications"
+            class="notification"
+            panel-id="notification-panel"
+          >
+            <div
+              class="action-icon"
+              slot="icon"
+              set:html={notificationIconSvgString}
+            />
+          </cds-header-global-action>
+          <cds-header-global-action
+            aria-label="User Profile"
+            class="user-avatar"
+            panel-id="user-profile-panel"
+          >
+            <div
+              class="action-icon"
+              slot="icon"
+              set:html={avatarIconSvgString}
+            />
+          </cds-header-global-action>
+          <cds-header-global-action
+            aria-label="App Switcher"
+            class="app-switcher"
+            panel-id="app-switcher-panel"
+          >
+            <div
+              class="action-icon"
+              slot="icon"
+              set:html={switcherIconSvgString}
+            />
+          </cds-header-global-action>
+
+          <cds-header-panel
+            id="notification-panel"
+            aria-label="Notification Panel">Notification Panel</cds-header-panel
+          >
+          <cds-header-panel
+            id="user-profile-panel"
+            aria-label="User profile Panel"
+          >
+            <div class="header-panel__content">
+              <h2 class="header-panel__title">User profile Panel</h2>
+
+              <cds-content-switcher value="system" class="theme-selector">
+                <cds-content-switcher-item icon value="light">
+                  <div
+                    class="theme-selector__icon theme-selector__icon--light"
+                    set:html={sunIconSvgString}
+                  />
+                  <span slot="tooltip-content">Light theme</span>
+                </cds-content-switcher-item>
+                <cds-content-switcher-item icon value="system">
+                  <div
+                    class="theme-selector__icon theme-selector__icon--system"
+                    set:html={brightnessIconSvgString}
+                  />
+                  <span slot="tooltip-content">System theme</span>
+                </cds-content-switcher-item>
+                <cds-content-switcher-item icon value="dark">
+                  <div
+                    class="theme-selector__icon theme-selector__icon--dark"
+                    set:html={moonIconSvgString}
+                  />
+                  <span slot="tooltip-content">Dark theme</span>
+                </cds-content-switcher-item>
+              </cds-content-switcher>
+
+              <cds-checkbox
+                id="theme-header__compliment"
+                class="theme-header__compliment"
+                checked
+                name="theme-header__compliment"
+                >Global header reverse theme</cds-checkbox
+              >
+            </div>
+          </cds-header-panel>
+          <cds-header-panel
+            id="app-switcher-panel"
+            aria-label="App switcher Panel">App switcher Panel</cds-header-panel
+          >
+        </div>
+      </cds-header>
+    </header>
+    <main id="main-content"></main>
+  </body>
+</html>
