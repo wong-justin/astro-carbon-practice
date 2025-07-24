@@ -2,42 +2,39 @@
 // mostly following:
 // https://carbondesignsystem.com/developing/web-components-tutorial/step-1/
 //
-// later i can remix using components from here:
+// then making a kitchen sink playground of components from:
 // https://web-components.carbondesignsystem.com/
-
-// import "../assets/app.scss";
-// import { MyComponent } from '../components/MyComponent.jsx'
 
 let title = "Hello World";
 
 // browse all icons:
 // https://carbondesignsystem.com/elements/icons/library/
-// and find their paths:
-// https://carbon-elements.netlify.app/icons/examples/preview/
+//
+// note, via: https://carbondesignsystem.com/elements/icons/usage/
+// "16px and 20px icons are optimized to feel balanced when paired with 14px and 16px IBM Plex.
+// Use 24px and 32px when larger icons are needed."
 import notificationIconSvgString from "@carbon/icons/svg/32/notification.svg?raw";
 import avatarIconSvgString from "@carbon/icons/svg/32/user--avatar.svg?raw";
 import switcherIconSvgString from "@carbon/icons/svg/32/switcher.svg?raw";
 import sunIconSvgString from "@carbon/icons/svg/32/sun.svg?raw";
 import brightnessIconSvgString from "@carbon/icons/svg/32/brightness-contrast.svg?raw";
 import moonIconSvgString from "@carbon/icons/svg/32/moon.svg?raw";
+import arrowRightIconSvgString from "@carbon/icons/svg/32/arrow--right.svg?raw";
 ---
 
 <script>
   import "@carbon/web-components/es/components/checkbox/index";
-  // checkbox/index ==
   // import './checkbox.js';
   // import './checkbox-group.js';
   // import './checkbox-skeleton.js';
   import "@carbon/web-components/es/components/content-switcher/index";
-  // content-switcher/index ==
   // import '../tooltip/tooltip.js';
   // import '../tooltip/tooltip-content.js';
   // import './content-switcher.js';
   // import './content-switcher-item.js';
   import "@carbon/web-components/es/components/skip-to-content/index";
-  // skip-to-content/index == just skip-to-content.js
+  // import './skip-to-content.js';
   import "@carbon/web-components/es/components/ui-shell/index";
-  // ui-shell/index ==
   // import './header.js';
   // import './header-global-action.js';
   // import './header-menu.js';
@@ -57,6 +54,98 @@ import moonIconSvgString from "@carbon/icons/svg/32/moon.svg?raw";
   // import './switcher.js';
   // import './switcher-divider.js';
   // import './switcher-item.js';
+  import "@carbon/web-components/es/components/text-input/index";
+  // import './text-input.js';
+  // import './text-input-skeleton.js';
+  import "@carbon/web-components/es/components/select/index";
+  // import './select.js';
+  // import './select-item.js';
+  // import './select-item-group.js';
+  // import './select-skeleton.js';
+  import "@carbon/web-components/es/components/form/index";
+  // import './form-item.js';
+  import "@carbon/web-components/es/components/link/index";
+  // import './link.js';
+  import "@carbon/web-components/es/components/inline-loading/index";
+  // import './inline-loading.js';
+  import "@carbon/web-components/es/components/button/index";
+  // import './button.js';
+  // import './button-set.js';
+  // import './button-skeleton.js';
+  import "@carbon/web-components/es/components/menu-button/index";
+  // import './menu-button.js';
+  import "@carbon/web-components/es/components/modal/index";
+  // import './modal.js';
+  // import './modal-body.js';
+  // import './modal-body-content.js';
+  // import './modal-close-button.js';
+  // import './modal-footer.js';
+  // import './modal-footer-button.js';
+  // import './modal-header.js';
+  // import './modal-heading.js';
+  // import './modal-label.js';
+  import "@carbon/web-components/es/components/number-input/index";
+  // import './number-input.js';
+  // import './number-input-skeleton.js';
+  import "@carbon/web-components/es/components/progress-bar/index";
+  // import './progress-bar.js';
+  import "@carbon/web-components/es/components/radio-button/index";
+  // import './radio-button.js';
+  // import './radio-button-group.js';
+  // import './radio-button-skeleton.js';
+  import "@carbon/web-components/es/components/structured-list/index";
+  // import './structured-list.js';
+  // import './structured-list-body.js';
+  // import './structured-list-cell.js';
+  // import './structured-list-head.js';
+  // import './structured-list-header-cell.js';
+  // import './structured-list-header-cell-skeleton.js';
+  // import './structured-list-header-row.js';
+  // import './structured-list-row.js';
+  import "@carbon/web-components/es/components/tabs/index";
+  // import './tabs.js';
+  // import './tab.js';
+  // import './tab-skeleton.js';
+  // import './tabs-skeleton.js';
+  import "@carbon/web-components/es/components/tag/index";
+  // import './tag.js';
+  // import './dismissible-tag.js';
+  // import './tag-skeleton.js';
+  // import './selectable-tag.js';
+  // import './operational-tag.js';
+  import "@carbon/web-components/es/components/textarea/index";
+  // import './textarea.js';
+  // import './textarea-skeleton.js';
+  import "@carbon/web-components/es/components/tile/index";
+  // import './clickable-tile.js';
+  // import './expandable-tile.js';
+  // import './radio-tile.js';
+  // import './selectable-tile.js';
+  // import './tile.js';
+  // import './tile-group.js';
+  import "@carbon/web-components/es/components/toggle-tip/index";
+  // import './toggletip.js';
+  import "@carbon/web-components/es/components/file-uploader/index";
+  // import './file-uploader.js';
+  // import './file-uploader-item.js';
+  // import './file-uploader-drop-container.js';
+  // import './file-uploader-button.js';
+  // import './file-uploader-skeleton.js';
+  import "@carbon/web-components/es/components/notification/index";
+  // import './inline-notification.js';
+  // import './toast-notification.js';
+  // import './actionable-notification.js';
+  // import './actionable-notification-button.js';
+  import "@carbon/web-components/es/components/stack/index";
+  // import './stack.js';
+  import "@carbon/web-components/es/components/date-picker/index";
+  // import './date-picker.js';
+  // import './date-picker-input.js';
+  // import './date-picker-input-skeleton.js';
+  import "@carbon/web-components/es/components/grid/index";
+  // import './grid.js';
+  // import './column.js';
+  // import './column-hang.js';
 
   const handleGlobalActionClick = (ev) => {
     const targetPanelId = ev.currentTarget.getAttribute("panel-id");
@@ -114,7 +203,7 @@ import moonIconSvgString from "@carbon/icons/svg/32/moon.svg?raw";
     display: grid;
     grid-template-rows: $spacing-09 1fr;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 
   .main {
@@ -177,9 +266,17 @@ import moonIconSvgString from "@carbon/icons/svg/32/moon.svg?raw";
     fill: $text-primary;
   }
 
-  cds-content-switcher-item[selected] .theme-selector__icon {
+  cds-link {
+    fill: currentColor;
+  }
+
+  cds-header-panel cds-content-switcher-item[selected] .theme-selector__icon {
     /* switch icon color when selected */
     fill: $background;
+  }
+
+  main > * {
+    padding: 1rem;
   }
 </style>
 
@@ -207,10 +304,10 @@ import moonIconSvgString from "@carbon/icons/svg/32/moon.svg?raw";
           button-label-active="Close menu"
           button-label-inactive="Open menu"></cds-header-menu-button>
 
-        <cds-header-name href="./">{title}</cds-header-name>
+        <cds-header-name href="#">{title}</cds-header-name>
 
         <cds-header-nav menu-bar-label={title}>
-          <cds-header-nav-item href="./">Repositories</cds-header-nav-item>
+          <cds-header-nav-item href="#">Repositories</cds-header-nav-item>
         </cds-header-nav>
 
         <cds-side-nav
@@ -219,7 +316,7 @@ import moonIconSvgString from "@carbon/icons/svg/32/moon.svg?raw";
           collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}"
         >
           <cds-side-nav-items>
-            <cds-side-nav-link href="./"> Repositories </cds-side-nav-link>
+            <cds-side-nav-link href="#"> Repositories </cds-side-nav-link>
           </cds-side-nav-items>
         </cds-side-nav>
 
@@ -309,6 +406,545 @@ import moonIconSvgString from "@carbon/icons/svg/32/moon.svg?raw";
         </div>
       </cds-header>
     </header>
-    <main id="main-content"></main>
+    <main id="main-content">
+      <cds-tabs value="all" type="contained">
+        <cds-tab id="tab-one" target="panel-one" value="one"
+          >Tab label 1</cds-tab
+        >
+        <cds-tab id="tab-two" target="panel-two" value="two">
+          Tab label 2
+        </cds-tab>
+        <cds-tab
+          id="tab-three"
+          target="panel-three"
+          value="three"
+          disabled="true"
+        >
+          Tab label 3
+        </cds-tab>
+        <cds-tab id="tab-four" target="panel-four" value="four"
+          >Tab label 4</cds-tab
+        >
+        <cds-tab id="tab-five" target="panel-five" value="five">
+          Tab label 5
+        </cds-tab>
+      </cds-tabs>
+      <div style="flex:1;align-self:stretch;padding:1rem;">
+        <div id="panel-one" role="tabpanel" aria-labelledby="tab-one" hidden="">
+          Tab Panel 1
+        </div>
+        <div id="panel-two" role="tabpanel" aria-labelledby="tab-two" hidden="">
+          Tab Panel 2
+        </div>
+        <div
+          id="panel-three"
+          role="tabpanel"
+          aria-labelledby="tab-three"
+          hidden=""
+        >
+          Tab Panel 3
+        </div>
+        <div
+          id="panel-four"
+          role="tabpanel"
+          aria-labelledby="tab-four"
+          hidden=""
+        >
+          Tab Panel 4
+        </div>
+        <div
+          id="panel-five"
+          role="tabpanel"
+          aria-labelledby="tab-five"
+          hidden=""
+        >
+          Tab Panel 5
+        </div>
+      </div>
+
+      <div>
+        <cds-content-switcher value="all">
+          <cds-content-switcher-item value="all">
+            First section
+          </cds-content-switcher-item>
+          <cds-content-switcher-item value="cloudFoundry">
+            Second section
+          </cds-content-switcher-item>
+          <cds-content-switcher-item value="staging">
+            Third section
+          </cds-content-switcher-item>
+        </cds-content-switcher>
+      </div>
+
+      <cds-form-item>
+        <cds-text-input
+          {/* inline="" */}
+          {/* helper-text="Helper text" */}
+          invalid-text="Error message goes here"
+          label="Label text"
+          max-count="100"
+          placeholder="Placeholder text"
+          size="md"
+          type="text"
+          value=""
+          warn-text="Warning message that is really long can wrap to more lines but should not be excessively long."
+        >
+        </cds-text-input>
+      </cds-form-item>
+
+      <cds-date-picker
+        allow-input="true"
+        close-on-select="true"
+        date-format="m/d/Y"
+        max-date=""
+        min-date=""
+      >
+        <cds-date-picker-input
+          label-text="Date Picker label"
+          placeholder="mm/dd/yyyy"
+          size="md"
+          warn-text=""
+        >
+        </cds-date-picker-input>
+      </cds-date-picker>
+
+      <cds-date-picker
+        allow-input="true"
+        close-on-select="true"
+        date-format="m/d/Y"
+        max-date=""
+        min-date=""
+      >
+        <cds-date-picker-input
+          kind="single"
+          label-text="Date Picker label"
+          placeholder="mm/dd/yyyy"
+          size="md"
+          warn-text=""
+        >
+        </cds-date-picker-input>
+      </cds-date-picker>
+
+      <cds-form-item>
+        <cds-select
+          inline=""
+          helper-text="Optional helper text"
+          invalid-text="Error message"
+          label-text="Select an option"
+          placeholder=""
+          size="md"
+          warn-text="Warning message"
+          value=""
+        >
+          <cds-select-item value=""></cds-select-item>
+          <cds-select-item value="all"
+            >An example option that is really long to show what should be done
+            to handle long text</cds-select-item
+          >
+          <cds-select-item value="cloudFoundry">Option 2</cds-select-item>
+          <cds-select-item value="staging">Option 3</cds-select-item>
+          <cds-select-item value="dea">Option 4</cds-select-item>
+        </cds-select>
+      </cds-form-item>
+
+      <cds-link href="#">
+        Some Link
+        <Fragment set:html={arrowRightIconSvgString} />
+      </cds-link>
+
+      <cds-link href="#">
+        Goto Some Link <svg
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          aria-hidden="true"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          slot="icon"
+          ><path
+            d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"
+          ></path></svg
+        >
+      </cds-link>
+
+      <p>
+        lorem ipsum
+        <cds-link inline="" href="#">an inline link</cds-link> lorem ipsum why is
+        the inline link smaller font size reduced?
+      </p>
+
+      <cds-button kind="secondary" id="cancel"> Cancel </cds-button>
+      <cds-button id="submit">Submit</cds-button>
+      <cds-inline-loading
+        controlled=""
+        style="display:none;margin-left:1rem"
+        icon-description="Submitting"
+        aria-live="off"
+        success-delay="2000"
+      >
+        Submitting
+      </cds-inline-loading>
+
+      <cds-menu-button
+        label="Menu Button"
+        kind="primary"
+        menu-alignment="bottom"
+        size="lg"
+        tab-index=""
+      >
+        <cds-menu>
+          <cds-menu-item label="First action"></cds-menu-item>
+          <cds-menu-item
+            label="Second action that is a longer item to test overflow and title."
+          ></cds-menu-item>
+          <cds-menu-item label="Third action" disabled="true"></cds-menu-item>
+        </cds-menu>
+      </cds-menu-button>
+
+      <cds-modal>
+        <cds-modal-header>
+          <cds-modal-close-button></cds-modal-close-button>
+          <cds-modal-label>Account resources</cds-modal-label>
+          <cds-modal-heading>Add a custom domain</cds-modal-heading>
+        </cds-modal-header>
+        <cds-modal-body>
+          <cds-modal-body-content description="">
+            Custom domains direct requests for your apps in this Cloud Foundry
+            organization to a URL that you own. A custom domain can be a shared
+            domain, a shared subdomain, or a shared domain and host.
+          </cds-modal-body-content>
+          <cds-form-item>
+            <cds-text-input placeholder="e.g. github.com" label="Domain name">
+            </cds-text-input>
+          </cds-form-item>
+          <cds-select label-text="Domain name" placeholder="US South">
+            <cds-select-item value="us-south">Option 1</cds-select-item>
+            <cds-select-item value="us-east">Option 2</cds-select-item>
+          </cds-select>
+        </cds-modal-body>
+        <cds-modal-footer>
+          <cds-modal-footer-button kind="secondary" data-modal-close=""
+            >Cancel</cds-modal-footer-button
+          >
+          <cds-modal-footer-button>Add</cds-modal-footer-button>
+        </cds-modal-footer>
+      </cds-modal>
+      <cds-button>Launch modal</cds-button>
+
+      <cds-form-item>
+        <cds-number-input
+          value="50"
+          min="0"
+          max="100"
+          step="1"
+          label="number-input label"
+          helper-text="Optional helper text"
+          size="md"
+        >
+        </cds-number-input>
+      </cds-form-item>
+
+      <div>
+        <cds-progress-bar
+          max="100"
+          label="Progress bar label"
+          helper-text="Optional helper text"
+          size="big"
+          status="active"
+          type="default"
+          value="75"
+        >
+        </cds-progress-bar>
+      </div>
+
+      <cds-radio-button-group
+        legend-text="Group label"
+        name="radio-group"
+        value="radio-1"
+        orientation="vertical"
+      >
+        <cds-radio-button label-text="Radio button label" value="radio-1"
+        ></cds-radio-button>
+        <cds-radio-button label-text="Radio button label" value="radio-2"
+        ></cds-radio-button>
+        <cds-radio-button label-text="Radio button label" value="radio-3"
+        ></cds-radio-button>
+      </cds-radio-button-group>
+
+      <cds-structured-list>
+        <cds-structured-list-head>
+          <cds-structured-list-header-row>
+            <cds-structured-list-header-cell>
+              ColumnA
+            </cds-structured-list-header-cell>
+            <cds-structured-list-header-cell>
+              ColumnB
+            </cds-structured-list-header-cell>
+            <cds-structured-list-header-cell>
+              ColumnC
+            </cds-structured-list-header-cell>
+          </cds-structured-list-header-row></cds-structured-list-head
+        >
+        <cds-structured-list-body>
+          <cds-structured-list-row>
+            <cds-structured-list-cell>Row 1</cds-structured-list-cell>
+            <cds-structured-list-cell>Row 1</cds-structured-list-cell>
+            <cds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
+              magna, finibus id tortor sed, aliquet bibendum augue. Aenean
+              posuere sem vel euismod dignissim. Nulla ut cursus dolor.
+              Pellentesque vulputate nisl a porttitor interdum.</cds-structured-list-cell
+            >
+          </cds-structured-list-row>
+          <cds-structured-list-row>
+            <cds-structured-list-cell>Row 2</cds-structured-list-cell>
+            <cds-structured-list-cell>Row 2</cds-structured-list-cell>
+            <cds-structured-list-cell>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
+              magna, finibus id tortor sed, aliquet bibendum augue. Aenean
+              posuere sem vel euismod dignissim. Nulla ut cursus dolor.
+              Pellentesque vulputate nisl a porttitor interdum.</cds-structured-list-cell
+            >
+          </cds-structured-list-row>
+        </cds-structured-list-body>
+      </cds-structured-list>
+
+      <div>
+        <cds-tag type="blue" title="Clear filters" size="md">
+          Tag content with a long text description
+        </cds-tag>
+        <cds-tag type="magenta" title="Clear filters" size="md"
+          >Tag content</cds-tag
+        ><cds-tag type="cyan" title="Clear filters" size="md"
+          >Tag content</cds-tag
+        ><cds-tag type="blue" title="Clear filters" size="md"
+          >Tag content</cds-tag
+        ><cds-tag type="high-contrast" title="Clear filters" size="md"
+          >Tag content</cds-tag
+        ><cds-tag type="outline" title="Clear filters" size="md"
+          >Tag content</cds-tag
+        ><cds-tag type="gray" title="Clear filters" size="md"
+          >Tag content</cds-tag
+        >
+      </div>
+
+      <cds-form-item>
+        <cds-textarea
+          enable-counter=""
+          counter-mode=""
+          helper-text="TextArea helper text"
+          invalid-text="Error message that is really long can wrap to more lines but should not be excessively long."
+          label="TextArea label"
+          value=""
+          warn-text="This is a warning message."
+          max-count="500"
+          placeholder=""
+          rows="4"
+          cols="0"
+        >
+        </cds-textarea>
+      </cds-form-item>
+
+      <cds-tile-group>
+        <legend slot="legend">Radio tile group</legend>
+        <cds-radio-tile> Option 1 </cds-radio-tile>
+        <cds-radio-tile selected="true"> Option 2 </cds-radio-tile>
+        <cds-radio-tile> Option 3 </cds-radio-tile>
+      </cds-tile-group>
+
+      <cds-tile-group>
+        <legend slot="legend">Checkbox tile group</legend>
+        <cds-selectable-tile> Option 1 </cds-selectable-tile>
+        <cds-selectable-tile> Option 2 </cds-selectable-tile>
+        <cds-selectable-tile> Option 3 </cds-selectable-tile>
+      </cds-tile-group>
+
+      <cds-button-set stacked>
+        <cds-button kind="secondary">Secondary button</cds-button>
+        <cds-button kind="primary">Primary button</cds-button>
+      </cds-button-set>
+
+      <div style="display: flex; align-items: center">
+        <cds-toggletip autoalign alignment="bottom" alignment-axis-offset="0">
+          this tooltip needs a bigger touch target at least the popover is
+          autoaligned
+
+          <p slot="body-text">
+            Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut fsil labore et dolore magna aliqua.
+          </p>
+          <cds-link href="#" slot="actions">Link action</cds-link>
+          <cds-button size="sm" slot="actions">Button</cds-button>
+        </cds-toggletip>
+      </div>
+
+      <div>
+        <cds-file-uploader
+          label-title="Upload files"
+          label-description="Max file size is 500kb. Only .jpg files are supported."
+          input-state="uploading"
+          icon-description="Delete file"
+          input-name=""
+        >
+          <cds-file-uploader-button
+            accept="image/jpeg"
+            name="default-file-uploader-button"
+            button-kind="primary"
+            size="md"
+          >
+            Add file
+          </cds-file-uploader-button>
+        </cds-file-uploader>
+      </div>
+
+      <div>
+        <cds-file-uploader
+          label-title="Upload files"
+          label-description="Max file size is 500 KB. Supported file types are .jpg and .png."
+          multiple=""
+        >
+          <cds-file-uploader-drop-container accept="image/jpeg image/png">
+            Drag and drop files here or click to upload
+          </cds-file-uploader-drop-container>
+        </cds-file-uploader>
+      </div>
+
+      {
+        /* too aggressive with focus stealing imo
+      <div>
+        <cds-actionable-notification
+          title="Notification title"
+          subtitle="Subtitle text goes here"
+          kind="error"
+        >
+          <cds-actionable-notification-button slot="action"
+            >Action</cds-actionable-notification-button
+          >
+        </cds-actionable-notification>
+      </div>
+	*/
+      }
+
+      <div>
+        <cds-toast-notification
+          title="Notification title"
+          subtitle="Subtitle text goes here"
+          caption="00:00:00 AM"
+          role="status"
+          timeout="0"
+          kind="error"
+        >
+        </cds-toast-notification>
+      </div>
+
+      <cds-stack gap="6" orientation="horizontal">
+        <cds-form-item>
+          <cds-text-input
+            {/* inline="" */}
+            {/* helper-text="Helper text" */}
+            invalid-text="Error message goes here"
+            label="Label text"
+            max-count="100"
+            placeholder="Placeholder text"
+            size="md"
+            type="text"
+            value=""
+            warn-text="Warning message that is really long can wrap to more lines but should not be excessively long."
+          >
+          </cds-text-input>
+        </cds-form-item>
+        <cds-form-item>
+          <cds-text-input
+            {/* inline="" */}
+            {/* helper-text="Helper text" */}
+            invalid-text="Error message goes here"
+            label="Label text"
+            max-count="100"
+            placeholder="Placeholder text"
+            size="md"
+            type="text"
+            value=""
+            warn-text="Warning message that is really long can wrap to more lines but should not be excessively long."
+          >
+          </cds-text-input>
+        </cds-form-item>
+      </cds-stack>
+
+      <div>
+        <cds-grid class="sb-grid" full-width="true" condensed="true">
+          <cds-column class="sb-column" sm="4"
+            ><cds-form-item>
+              <cds-text-input
+                {/* inline="" */}
+                {/* helper-text="Helper text" */}
+                invalid-text="Error message goes here"
+                label="Label text"
+                max-count="100"
+                placeholder="Placeholder text"
+                size="md"
+                type="text"
+                value=""
+                warn-text="Warning message that is really long can wrap to more lines but should not be excessively long."
+              >
+              </cds-text-input>
+            </cds-form-item></cds-column
+          >
+          <cds-column class="sb-column" sm="4"
+            ><cds-form-item>
+              <cds-text-input
+                {/* inline="" */}
+                {/* helper-text="Helper text" */}
+                invalid-text="Error message goes here"
+                label="Label text"
+                max-count="100"
+                placeholder="Placeholder text"
+                size="md"
+                type="text"
+                value=""
+                warn-text="Warning message that is really long can wrap to more lines but should not be excessively long."
+              >
+              </cds-text-input>
+            </cds-form-item></cds-column
+          >
+          <cds-column class="sb-column" sm="4"
+            ><cds-form-item>
+              <cds-text-input
+                {/* inline="" */}
+                {/* helper-text="Helper text" */}
+                invalid-text="Error message goes here"
+                label="Label text"
+                max-count="100"
+                placeholder="Placeholder text"
+                size="md"
+                type="text"
+                value=""
+                warn-text="Warning message that is really long can wrap to more lines but should not be excessively long."
+              >
+              </cds-text-input>
+            </cds-form-item></cds-column
+          >
+          <cds-column class="sb-column" sm="4"
+            ><cds-form-item>
+              <cds-text-input
+                {/* inline="" */}
+                {/* helper-text="Helper text" */}
+                invalid-text="Error message goes here"
+                label="Label text"
+                max-count="100"
+                placeholder="Placeholder text"
+                size="md"
+                type="text"
+                value=""
+                warn-text="Warning message that is really long can wrap to more lines but should not be excessively long."
+              >
+              </cds-text-input>
+            </cds-form-item></cds-column
+          >
+        </cds-grid>
+      </div>
+    </main>
   </body>
 </html>
+
