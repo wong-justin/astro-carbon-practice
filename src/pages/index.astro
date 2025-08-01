@@ -3,8 +3,9 @@
 // https://carbondesignsystem.com/developing/web-components-tutorial/step-1/
 // (not interested in steps 2-5 atm)
 //
-// then making a kitchen sink playground of components from:
+// then putting the kitchen sink of components into <main>:
 // https://web-components.carbondesignsystem.com/
+// not all components, just widgets i might use
 //
 // note: there are feature flags for higher contrast, more accessible components
 // solves some usability gripes i had
@@ -673,8 +674,8 @@ if (success) {
 
       <p>
         lorem ipsum
-        <cds-link inline="" href="#">an inline link</cds-link> lorem ipsum why is
-        the inline link smaller font size reduced?
+        <cds-link inline="true" href="#">inline link</cds-link> lorem ipsum why was
+        the inline link font size reduced?
       </p>
 
       <cds-button kind="secondary" id="cancel"> Cancel </cds-button>
@@ -919,8 +920,6 @@ if (success) {
         <cds-stack gap="6" orientation="horizontal">
           <cds-form-item>
             <cds-text-input
-              {/* inline="" */}
-              {/* helper-text="Helper text" */}
               invalid-text="Error message goes here"
               label="Label text"
               max-count="100"
@@ -934,8 +933,6 @@ if (success) {
           </cds-form-item>
           <cds-form-item>
             <cds-text-input
-              {/* inline="" */}
-              {/* helper-text="Helper text" */}
               invalid-text="Error message goes here"
               label="Label text"
               max-count="100"
