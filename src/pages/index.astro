@@ -30,6 +30,20 @@ import sunIconSvgString from "@carbon/icons/svg/32/sun.svg?raw";
 import brightnessIconSvgString from "@carbon/icons/svg/32/brightness-contrast.svg?raw";
 import moonIconSvgString from "@carbon/icons/svg/32/moon.svg?raw";
 import arrowRightIconSvgString from "@carbon/icons/svg/32/arrow--right.svg?raw";
+
+// hacky non-DOM version of elementFrom(svgString).querySelector('path')
+// so we can set <svg newAttributes><path...></svg>
+//
+// EDIT - maybe instead
+// import arrowRightJson from node_modules/@carbon/icons/es/arrow-right.js
+// contents = createPathFrom(arrowRightJson.contents)
+let arrowRightIconSvgPathString = "";
+let regexForSvgInnards = /<svg[^>]*?>(.*?)<\/svg>/is;
+let matchResults = arrowRightIconSvgString.match(regexForSvgInnards);
+let success = matchResults && matchResults[1];
+if (success) {
+  arrowRightIconSvgPathString = matchResults[1];
+}
 ---
 
 <script>
@@ -630,28 +644,20 @@ import arrowRightIconSvgString from "@carbon/icons/svg/32/arrow--right.svg?raw";
       </cds-form-item>
 
       <cds-link href="#">
-        Some Link
-        <Fragment set:html={arrowRightIconSvgString} />
+        Goto Some Link
+        <svg
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          aria-hidden="true"
+          width="16"
+          height="16"
+          slot="icon"
+          viewBox="0 0 32 32"
+          set:html={arrowRightIconSvgPathString}
+        />
       </cds-link>
-
-      <div>
-        <cds-link href="#">
-          Goto Some Link <svg
-            focusable="false"
-            preserveAspectRatio="xMidYMid meet"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            aria-hidden="true"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            slot="icon"
-            ><path
-              d="M9.3 3.7L13.1 7.5 1 7.5 1 8.5 13.1 8.5 9.3 12.3 10 13 15 8 10 3z"
-            ></path></svg
-          >
-        </cds-link>
-      </div>
 
       <p>
         lorem ipsum
