@@ -301,10 +301,6 @@ if (success) {
     fill: $text-primary;
   }
 
-  cds-link {
-    fill: currentColor;
-  }
-
   cds-header-panel cds-content-switcher-item[selected] .theme-selector__icon {
     /* switch icon color when selected */
     fill: $background;
@@ -314,7 +310,7 @@ if (success) {
     padding: 1rem;
   }
 
-  cds-content-switcher {
+  cds-content-switcher:not(.theme-selector) {
     /* patching overflow behavior of content-switcher-items */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
@@ -336,6 +332,28 @@ if (success) {
      * node_modules/@carbon/web-components/es/components/date-picker/date-picker-input.js
      * insert after line 210, adding to the <input> element in render():
      * `style="inline-size:100%;"`
+     *
+     * EDIT - maybe i can pass in styles prop?
+     */
+  }
+
+  cds-link {
+    /* 
+     * font-size: var(--cds-body-02-font-size, 1rem);
+     * text-decoration: underline;
+     *
+     * trying to reset the unusually small font size of a link
+     * to instead match the font size of a paragraph
+     * also trying to force always-underlined links, even block-style / non-inline links
+     * because blue text is not enough affordance to indicate a link
+     * but the child <a> is in the shadow dom, so i can't restyle it externally
+     *
+     * instead, must monkey patch this file:
+     * node_modules/@carbon/web-components/es/components/link/link.js
+     * insert after line 124, adding to the <a> element in render():
+     * `style="font-size:var(--cds-body-02-font-size, 1rem);text-decoration:underline;"`
+     *
+     * EDIT - maybe i can pass in styles prop?
      */
   }
 </style>
@@ -523,20 +541,14 @@ if (success) {
       </div>
 
       <div>
-        <cds-content-switcher
-          style={"" /*"display:flex;max-width:100%;overflow:hidden;"*/}
-          value="first"
-        >
+        <cds-content-switcher value="first">
           <cds-content-switcher-item value="first">
             First section
           </cds-content-switcher-item>
           <cds-content-switcher-item value="second">
             Second section with a really long name
           </cds-content-switcher-item>
-          <cds-content-switcher-item
-            class="cds--text-truncate--end"
-            value="third"
-          >
+          <cds-content-switcher-item value="third">
             Third section
           </cds-content-switcher-item>
         </cds-content-switcher>
